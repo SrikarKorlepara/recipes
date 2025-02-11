@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:recipesdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+
+external:
+  recipes:
+    url: https://dummyjson.com/recipes
+    timeout: 5000
+
+resilience:
+  retry:
+    max-attempts: 3
+    backoff-ms: 1000
