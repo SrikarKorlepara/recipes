@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:recipesdb
+    url: jdbc:h2:mem:recipesdbs
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -15,14 +15,34 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+        search:
+          backend:
+            type: lucene
+            lucene_version: LATEST
+            directory:
+              type: local-filesystem
+              root: ./lucene-index
+  main:
+    allow-bean-definition-overriding: true
 
 
 external:
   recipes:
     url: https://dummyjson.com/recipes
-    timeout: 5000
 
-resilience:
+resilience4j:
+  circuitbreaker:
+    instances:
+      recipeService:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15s
+        permittedNumberOfCallsInHalfOpenState: 2
+        minimumNumberOfCalls: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
   retry:
-    max-attempts: 3
-    backoff-ms: 1000
+    instances:
+      recipeService:
+        maxAttempts: 2
+        waitDuration: 1s
