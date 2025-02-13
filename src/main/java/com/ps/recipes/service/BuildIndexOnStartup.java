@@ -1,9 +1,6 @@
 package com.ps.recipes.service;
 
-import com.ps.recipes.domain.Recipe;
-import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.hibernate.search.mapper.orm.Search;
 import org.hibernate.search.mapper.orm.session.SearchSession;

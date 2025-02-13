@@ -40,6 +40,24 @@
 		</dependency>
 		<!-- Hibernate Search 6 with Lucene backend -->
 		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+
+		<!-- PDFBox for PDF handling -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.hibernate.search</groupId>
 			<artifactId>hibernate-search-mapper-orm</artifactId>
 			<version>7.0.0.Final</version>

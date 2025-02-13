@@ -59,7 +59,7 @@ public class RecipeServiceImpl implements RecipeService {
                 searchSession = Search.session(entityManager);
         SearchResult<Recipe> result = searchSession.search(Recipe.class)
                 .where(f -> f.match()
-                        .fields("name", "cuisine", "tags", "ingredients","difficulty","instructions","tags","mealType") // Fields to search
+                        .fields("name", "cuisine")
                         .matching(text)
                         .fuzzy(2)) // Optional: Enable fuzzy search
                 .fetch(20);

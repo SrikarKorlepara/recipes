@@ -1,6 +1,5 @@
 package com.ps.recipes.service;
 
-import com.ps.recipes.domain.Recipe;
 import com.ps.recipes.dto.RecipeDTO;
 
 import java.util.List;

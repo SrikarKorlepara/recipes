@@ -25,6 +25,15 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+file:
+  upload-dir: D:\scaler\LLD\LLD intellij project\practice projects
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8082
 
 external:
   recipes:
